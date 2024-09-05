@@ -64,37 +64,37 @@ const Typography: React.FC<TypographyProps> = ({variant, children, style}) => {
 const styles = StyleSheet.create({
   headline: {
     fontSize: 30,
-    fontWeight: '700',
+    // fontWeight: '700',
     lineHeight: 36,
     marginVertical: 8,
   },
   title: {
     fontSize: 24,
-    fontWeight: '600',
+    // fontWeight: '600',
     lineHeight: 30,
     marginVertical: 6,
   },
   subtitle: {
     fontSize: 20,
-    fontWeight: '500',
+    // fontWeight: '500',
     lineHeight: 26,
     marginVertical: 4,
   },
   body: {
     fontSize: 16,
-    fontWeight: '400',
+    // fontWeight: '400',
     lineHeight: 22,
     marginVertical: 2,
   },
   caption: {
     fontSize: 14,
-    fontWeight: '400',
+    // fontWeight: '400',
     lineHeight: 18,
     marginVertical: 2,
   },
   overline: {
     fontSize: 12,
-    fontWeight: '400',
+    // fontWeight: '400',
     letterSpacing: 1.5,
     textTransform: 'uppercase',
     marginVertical: 1,

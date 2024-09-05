@@ -45,9 +45,8 @@ const BottomTabNavigator: React.FC = () => (
       tabBarInactiveTintColor: 'white',
       headerShown: false,
       tabBarLabelStyle: {
-        fontFamily: 'SourceSans3',
+        fontFamily: 'SourceSans3-Bold',
         fontSize: 12,
-        fontWeight: '700',
         marginBottom: 8,
       },
     })}>
