@@ -59,7 +59,7 @@ export const Colors = {
     errorContainer: 'rgb(147, 0, 10)',
     onErrorContainer: 'rgb(255, 180, 171)',
     background: '#0F0F0F',
-    onBackground: 'rgb(237, 224, 221)',
+    onBackground: '#1E1E1E',
     surface: 'rgb(32, 26, 24)',
     onSurface: 'rgb(237, 224, 221)',
     surfaceVariant: 'rgb(83, 67, 63)',

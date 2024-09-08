@@ -46,10 +46,18 @@ const AppBar: React.FC<AppBarProps> = ({
     ...customStyles?.title,
   };
 
+  const iconStyles: ViewStyle = {
+    backgroundColor: Colors.dark.onBackground,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  };
+
   return (
     <Appbar.Header style={appbarStyles}>
       {leftButtonIcon && (
         <Appbar.Action
+          style={iconStyles}
           icon={leftButtonIcon}
           onPress={leftButtonOnPress}
           color="white"
@@ -58,6 +66,7 @@ const AppBar: React.FC<AppBarProps> = ({
       <Appbar.Content title={appbarTitle} titleStyle={titleStyles} />
       {rightButtonIcon && (
         <Appbar.Action
+          style={iconStyles}
           icon={rightButtonIcon}
           onPress={rightButtonOnPress}
           color="white"
@@ -70,11 +79,16 @@ const AppBar: React.FC<AppBarProps> = ({
 const styles = StyleSheet.create({
   appbar: {
     backgroundColor: '#000', // Black background color
+    padding: 8,
   },
+  // icon: {
+  //   backgroundColor: "#"
+  // },
   title: {
-    fontFamily: 'SourceSans3-Bold',
-    color: '#fff', // White text color for title
-    fontSize: 20, // Adjust size as needed
+    fontFamily: 'SourceSans3-SemiBold',
+    color: '#fff',
+    fontSize: 22,
+    alignSelf: 'center',
   },
 });
 
