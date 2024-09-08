@@ -5,7 +5,12 @@ import Typography from '../../components/shared/typography/Typography';
 
 const Home = () => {
   return (
-    <RootContainer>
+    <RootContainer
+      appbarTitle="Explore"
+      leftButtonIcon="arrow-left"
+      leftButtonOnPress={() => console.log('Back pressed')}
+      rightButtonIcon="magnify"
+      rightButtonOnPress={() => console.log('Search pressed')}>
       <Typography variant="title">Home</Typography>
     </RootContainer>
   );
