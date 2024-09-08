@@ -6,7 +6,7 @@ import AppBar from '../appbar/AppBar';
 interface RootContainerProps {
   children: React.ReactNode;
   style?: ViewStyle;
-  appbarTitle: string;
+  appbarTitle?: string;
   leftButtonIcon?: string;
   leftButtonOnPress?: () => void;
   rightButtonIcon?: string;
@@ -15,10 +15,10 @@ interface RootContainerProps {
     appbar?: ViewStyle;
     title?: TextStyle;
   };
+  appBarVariant?: string;
 }
 
 // TODO: Solve the problem when FlatList is inside of a ScrollView
-// TODO: RootContainer should also contain AppBar and it's props; however, app bar will be in separate component
 const RootContainer: React.FC<RootContainerProps> = ({
   children,
   style,
@@ -28,10 +28,12 @@ const RootContainer: React.FC<RootContainerProps> = ({
   rightButtonIcon,
   rightButtonOnPress,
   customAppbarStyles,
+  appBarVariant,
 }) => {
   return (
     <>
       <AppBar
+        appBarVariant={appBarVariant}
         appbarTitle={appbarTitle}
         leftButtonIcon={leftButtonIcon}
         leftButtonOnPress={leftButtonOnPress}

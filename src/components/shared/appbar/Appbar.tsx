@@ -1,21 +1,21 @@
-// AppBar.tsx
 import React from 'react';
 import {Appbar} from 'react-native-paper';
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
 import {Colors} from '../../../constants/Colors';
+import BeholdWAELogo from '../../../../assets/images/behold-logo.svg';
 
-// Define the types for the props
 interface AppBarProps {
-  appbarTitle: string; // Title for the Appbar
-  leftButtonIcon?: string; // Icon name for the left button, if any
-  leftButtonOnPress?: () => void; // Function to handle the left button press, if any
-  rightButtonIcon?: string; // Icon name for the right button, if any
-  rightButtonOnPress?: () => void; // Function to handle the right button press, if any
+  appbarTitle?: string;
+  leftButtonIcon?: string;
+  leftButtonOnPress?: () => void;
+  rightButtonIcon?: string;
+  rightButtonOnPress?: () => void;
   customStyles?: {
     appbar?: ViewStyle;
     title?: TextStyle;
     subtitle?: TextStyle;
   };
+  appBarVariant?: string;
 }
 
 const AppBar: React.FC<AppBarProps> = ({
@@ -25,14 +25,17 @@ const AppBar: React.FC<AppBarProps> = ({
   rightButtonIcon,
   rightButtonOnPress,
   customStyles,
+  appBarVariant = 'default',
 }) => {
-  if (
+  const isNotAppearAppBar =
     !appbarTitle &&
     !leftButtonIcon &&
     !leftButtonOnPress &&
     !rightButtonIcon &&
-    !rightButtonOnPress
-  ) {
+    !rightButtonOnPress &&
+    appBarVariant;
+
+  if (isNotAppearAppBar) {
     return null;
   }
   const appbarStyles: ViewStyle = {
@@ -53,7 +56,28 @@ const AppBar: React.FC<AppBarProps> = ({
     borderRadius: 20,
   };
 
-  return (
+  return appBarVariant === 'default' ? (
+    <Appbar.Header style={appbarStyles}>
+      <Appbar.Action
+        style={iconStyles}
+        icon={'menu'}
+        onPress={leftButtonOnPress}
+        color="white"
+      />
+      <View
+        style={{
+          flex: 1,
+        }}>
+        <BeholdWAELogo width={'100%'} />
+      </View>
+      <Appbar.Action
+        style={iconStyles}
+        icon={'magnify'}
+        onPress={rightButtonOnPress}
+        color="white"
+      />
+    </Appbar.Header>
+  ) : (
     <Appbar.Header style={appbarStyles}>
       {leftButtonIcon && (
         <Appbar.Action
@@ -63,7 +87,9 @@ const AppBar: React.FC<AppBarProps> = ({
           color="white"
         />
       )}
-      <Appbar.Content title={appbarTitle} titleStyle={titleStyles} />
+      {appbarTitle && (
+        <Appbar.Content title={appbarTitle} titleStyle={titleStyles} />
+      )}
       {rightButtonIcon && (
         <Appbar.Action
           style={iconStyles}
@@ -78,12 +104,8 @@ const AppBar: React.FC<AppBarProps> = ({
 
 const styles = StyleSheet.create({
   appbar: {
-    backgroundColor: '#000', // Black background color
-    padding: 8,
+    height: 70,
   },
-  // icon: {
-  //   backgroundColor: "#"
-  // },
   title: {
     fontFamily: 'SourceSans3-SemiBold',
     color: '#fff',
